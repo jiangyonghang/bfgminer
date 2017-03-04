@@ -5233,6 +5233,8 @@ share_result(json_t *val, json_t *res, json_t *err, const struct work *work,
 	struct pool *pool = work->pool;
 	struct cgpu_info *cgpu;
 
+    printf("======get\n");
+    exit(0);
 	cgpu = get_thr_cgpu(work->thr_id);
 
 	if ((json_is_null(err) || !err) && (json_is_null(res) || json_is_true(res))) {
@@ -13531,7 +13533,8 @@ int main(int argc, char *argv[])
 		opt_log_output = true;
 
 	bfg_devapi_init();
-	drv_detect_all();
+    _scan_serial("auto");
+	//drv_detect_all();
 	total_devices = total_devices_new;
 	devices = devices_new;
 	total_devices_new = 0;
